@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/matolj/nodejs_playground#readme",
   "dependencies": {
+    "mongoose": "^6.3.8",
     "prompt-sync": "^4.2.0"
   }
 }
