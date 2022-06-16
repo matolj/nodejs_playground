@@ -1,0 +1,22 @@
+{
+  "name": "nodejs_playground",
+  "version": "1.0.0",
+  "description": "Playground",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matolj/nodejs_playground.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matolj/nodejs_playground/issues"
+  },
+  "homepage": "https://github.com/matolj/nodejs_playground#readme",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
