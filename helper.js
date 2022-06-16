@@ -84,9 +84,15 @@ const prepareEverythingToPlay = async () => {
      
 }
 
+const isPalindrome = (str )=>{
+    str = str.toLowerCase().replace(/\W+|_/g, '');
+    return str == str.split('').reverse().join('');
+}
+
 module.exports = {
     defineWinner,
     setDbConnection,
     insertPlayers,
-    prepareEverythingToPlay
+    prepareEverythingToPlay,
+    isPalindrome
 }

@@ -18,6 +18,15 @@ startingEverything = async () =>{
             userInputPlayGame1 = prompt("Do you want play more Y/N : ")
         
         }while (userInputPlayGame1 === 'Y')
+        
+    }else if (userInputOption === '2'){
+        const userInputPalindrome = prompt("Enter a word to check is it a palindrome: ")
+        const isPalindrome = helper.isPalindrome(userInputPalindrome.trim())
+        if(isPalindrome) {
+            console.log(userInputPalindrome.trim() + " is Palindrome !!!! Bravo :)")
+        }else{
+            console.log(userInputPalindrome.trim() + " is not Palindrome !!!! :(")
+        }
     }
 
 }
