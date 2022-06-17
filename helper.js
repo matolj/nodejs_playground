@@ -13,7 +13,7 @@ const defineWinner = async (userInput) =>{
 
     if(userChoice === computerChoice){
         console.log('Draw!')
-        return
+        return "Draw"
     }
 
     if(
@@ -24,22 +24,24 @@ const defineWinner = async (userInput) =>{
         console.log('Computer Win!')
         const winningplayer = await Player.findOne({name: computerChoice})
         const losingplayer = await Player.findOne({name: userChoice})
-        return await Game.create({
+        const createGame = await Game.create({
             winner: winningplayer._id,
             loser: losingplayer._id,
             winnerType: "Computer",
             loserType: "User"
         })
+        return 'Computer Win'
     }else{
         console.log('You Win!')
         const winningplayer = await Player.findOne({name: userChoice})
         const losingplayer = await Player.findOne({name: computerChoice})
-        return await Game.create({
+        const createGame = await Game.create({
             winner: winningplayer._id,
             loser: losingplayer._id,
             winnerType: "User",
             loserType: "Computer"
         })
+        return 'You Win'
     }
 
 }
@@ -89,10 +91,52 @@ const isPalindrome = (str )=>{
     return str == str.split('').reverse().join('');
 }
 
+const findMinimumLengthOfTheSequence = (S, m, n) => {
+    let table = [];
+    for(let i = 0;i<m+1;i++){
+       table[i] = [];
+       for(let j = 0;j<n+1;j++){
+              table[i][j] = 0;
+       }
+    }
+ 
+    // Loop to initialize the array
+    // as infinite in the row 0
+    for (let i = 1; i <= n; i++) {
+        table[0][i] = Number.MAX_VALUE - 1;
+    }
+ 
+    // Loop to find the solution
+    // by pre-computation for the
+    // sequence
+    for (let i = 1; i <= m; i++) {
+ 
+        for (let j = 1; j <= n; j++) {
+            if (S[i - 1] > j) {
+                table[i][j]
+                    = table[i - 1][j];
+            }
+            else {
+ 
+                // Minimum possible
+                // for the previous
+                // minimum value
+                // of the sequence
+                table[i][j]
+                    = Math.min(
+                        table[i - 1][j],
+                        table[i][j - S[i - 1]] + 1);
+            }
+        }
+    }
+    return table[m][n];
+}
+
 module.exports = {
     defineWinner,
     setDbConnection,
     insertPlayers,
     prepareEverythingToPlay,
-    isPalindrome
+    isPalindrome,
+    findMinimumLengthOfTheSequence
 }
