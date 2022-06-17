@@ -87,7 +87,8 @@ const prepareEverythingToPlay = async () => {
 }
 
 const isPalindrome = (str )=>{
-    str = str.toLowerCase().replace(/\W+|_/g, '');
+    str = str.toLowerCase().replace(/[\W_]/g, '');
+    str = str.replace(/[0-9]/g, '');
     return str == str.split('').reverse().join('');
 }
 
@@ -131,6 +132,7 @@ const findMinimumLengthOfTheSequence = (S, m, n) => {
     }
     return table[m][n];
 }
+
 
 module.exports = {
     defineWinner,
