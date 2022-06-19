@@ -88,7 +88,7 @@ const prepareEverythingToPlay = async () => {
 
 const isPalindrome = (str )=>{
     str = str.toLowerCase().replace(/[\W_]/g, '');
-    str = str.replace(/[0-9]/g, '');
+    //str = str.replace(/[0-9]/g, '');
     return str == str.split('').reverse().join('');
 }
 
